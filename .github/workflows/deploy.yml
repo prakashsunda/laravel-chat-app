@@ -1,0 +1,33 @@
+name: Deploy Laravel App
+
+on:
+  push:
+    branches:
+      - master  # या आपकी डिफ़ॉल्ट ब्रांच (e.g., master)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, bcmath, ctype, fileinfo, json, pdo, tokenizer, xml
+          tools: composer
+
+      - name: Install Dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Upload to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.your-server.com
+          username: your-ftp-username
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/coding-with-prakash/  # अपने फोल्डर के हिसाब से एडजस्ट करें
