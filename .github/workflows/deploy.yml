@@ -30,4 +30,6 @@ jobs:
           username: if0_34539795
           password: Niku0208
           local-dir: ./
-          server-dir: /public_html/coding-with-prakash/  # अपने फोल्डर के हिसाब से एडजस्ट करें
+          server-dir: /prakash-sunda.rf.gd/  # अपने फोल्डर के हिसाब से एडजस्ट करें
+          timeout: 120
+          debug: true
