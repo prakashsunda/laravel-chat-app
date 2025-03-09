@@ -26,7 +26,8 @@ jobs:
       - name: Upload to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.free.nf
+          # server: ftp.free.nf /ftpupload.net
+          server: ftpupload.net
           username: if0_34539795
           password: Niku0208
           local-dir: ./
