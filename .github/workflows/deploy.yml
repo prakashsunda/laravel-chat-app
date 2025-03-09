@@ -1,39 +1,39 @@
-name: Deploy Laravel App
+# name: Deploy Laravel App
 
-on:
-  push:
-    branches:
-      - master  # या आपकी डिफ़ॉल्ट ब्रांच (e.g., master)
+# on:
+#   push:
+#     branches:
+#       - master  # या आपकी डिफ़ॉल्ट ब्रांच (e.g., master)
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v3
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: mbstring, bcmath, ctype, fileinfo, json, pdo, tokenizer, xml
-          tools: composer
+#       - name: Setup PHP
+#         uses: shivammathur/setup-php@v2
+#         with:
+#           php-version: '8.2'
+#           extensions: mbstring, bcmath, ctype, fileinfo, json, pdo, tokenizer, xml
+#           tools: composer
 
-      - name: Install Dependencies
-        run: composer install --no-dev --optimize-autoloader
+#       - name: Install Dependencies
+#         run: composer install --no-dev --optimize-autoloader
 
-      - name: Upload to FTP Server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ftpupload.net
-          username: if0_34539795
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          server-dir: /prakash-sunda.rf.gd/  # अपने फोल्डर के हिसाब से एडजस्ट करें
-          port: 21
-          protocol: ftp
-          passive: true
-          log-level: verbose
-          # timeout: 120
-          debug: true
+#       - name: Upload to FTP Server
+#         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+#         with:
+#           server: ftpupload.net
+#           username: if0_34539795
+#           password: ${{ secrets.FTP_PASSWORD }}
+#           local-dir: ./
+#           server-dir: /prakash-sunda.rf.gd/  # अपने फोल्डर के हिसाब से एडजस्ट करें
+#           port: 21
+#           protocol: ftp
+#           passive: true
+#           log-level: verbose
+#           # timeout: 120
+#           debug: true
