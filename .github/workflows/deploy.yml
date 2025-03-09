@@ -26,11 +26,14 @@ jobs:
       - name: Upload to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          # server: ftp.free.nf /ftpupload.net
           server: ftpupload.net
           username: if0_34539795
-          password: Niku0208
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /prakash-sunda.rf.gd/  # अपने फोल्डर के हिसाब से एडजस्ट करें
-          timeout: 120
+          port: 21
+          protocol: ftp
+          passive: true
+          log-level: verbose
+          # timeout: 120
           debug: true
