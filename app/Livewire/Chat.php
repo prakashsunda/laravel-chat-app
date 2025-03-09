@@ -101,6 +101,8 @@ class Chat extends Component
         }
     }
 
+
+    
     // #[On('echo-private:chat-channel.{sender_id},ChatMessageSent')]
     // public function listenForMessage($event)
     // {
